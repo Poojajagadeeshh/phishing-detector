@@ -150,19 +150,27 @@ export const PhishingDetector = () => {
       <div className="container max-w-4xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-primary mb-6 shadow-lg">
-            <Shield className="w-10 h-10 text-primary-foreground" />
+          <div className="relative inline-block mb-6">
+            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center shadow-2xl animate-pulse">
+              <i className="fas fa-eye text-white text-4xl" />
+            </div>
+            <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center animate-bounce">
+              <i className="fas fa-check text-white text-sm" />
+            </div>
+            <div className="absolute -bottom-1 -left-1 w-5 h-5 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center animate-bounce delay-1000">
+              <i className="fas fa-search text-white text-xs" />
+            </div>
           </div>
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-6xl font-[Playfair+Display] font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
             {t.title}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl font-[Source+Sans+Pro] text-slate-600 max-w-2xl mx-auto leading-relaxed">
             {t.subtitle}
           </p>
         </div>
 
         {/* Main Card */}
-        <Card className="p-8 shadow-xl border-2 animate-fade-in">
+        <Card className="p-8 shadow-2xl border-0 bg-gradient-to-br from-white to-slate-50 animate-fade-in">
           <div className="space-y-6">
             {/* Language Selector */}
             <div className="flex justify-end">
@@ -192,11 +200,12 @@ export const PhishingDetector = () => {
             <Button
               onClick={handleAnalyze}
               disabled={isAnalyzing || !text.trim()}
-              className="w-full h-12 text-lg font-semibold bg-gradient-primary hover:opacity-90 transition-all"
+              className="w-full h-14 text-lg font-[Poppins] font-semibold bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 hover:from-purple-700 hover:via-pink-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               size="lg"
             >
-              <Shield className="w-5 h-5 mr-2" />
+              <i className="fas fa-eye mr-3 text-lg" />
               {isAnalyzing ? t.analyzingButton : t.analyzeButton}
+              <i className="fas fa-arrow-right ml-3 text-sm" />
             </Button>
 
             {/* Results */}
@@ -253,8 +262,13 @@ export const PhishingDetector = () => {
         </Card>
 
         {/* Footer */}
-        <div className="mt-12 text-center text-sm text-muted-foreground">
-          <p>Powered by AI-based phishing detection</p>
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200">
+            <i className="fas fa-brain text-emerald-600" />
+            <p className="text-sm font-[Source+Sans+Pro] font-medium text-emerald-800">
+              Powered by AI-based phishing detection
+            </p>
+          </div>
         </div>
       </div>
     </div>
